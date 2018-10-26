@@ -51,8 +51,8 @@ def get():
 
     data["is_xhr"] = request.is_xhr
 
-    data["x-forwarded-for"] = request.environ.get("x-forwarded-for")
-    data["X-Real-IP"] = request.environ.get("X-Real-IP")
+    data["x-forwarded-for"] = request.environ.get("HTTP_X_FORWARDED_FOR")
+    data["X-Real-IP"] = request.environ.get("X-REAl-IP")
     data["remote_addr"] = request.remote_addr
 
 

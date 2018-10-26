@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>爬虫测试</title>
+    <style>
+        body{
+            width:500px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
 <h1>爬虫请求头，请求参数测试</h1>
@@ -13,14 +19,12 @@
 <h3>POST请求</h3>
 
 <form action="/post" METHOD="post">
-    <p><input type="text" name="name"></p>
-    <p><input type="text" name="age"></p>
+    <p><label for="name">name: </label><input id="name" type="text" name="name"></p>
+    <p><label for="age"> age: </label><input id="age" type="text" name="age"></p>
     <p><input type="submit"></p>
 </form>
 
-
-
-
+<p>作者：<a href="https://github.com/mouday">https://github.com/mouday</a></p>
 <p>参考：<a href="https://httpbin.org/">https://httpbin.org/</a></p>
 
 </body>

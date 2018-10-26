@@ -20,41 +20,24 @@ def index():
 
 @app.route("/get")
 def get():
-    data = {}
     headers = dict(request.headers)
+    data = {}
     data["headers"] = headers
-    data["path"] = request.path
-    data["base_url"] = request.base_url
-    # data["user_agent"] = {
-    #     "user_agent": request.user_agent.string,
-    #     "browser": request.user_agent.browser,
-    #     "language": request.user_agent.language,
-    #     "platform": request.user_agent.platform,
-    #     "version": request.user_agent.version,
-    # }
-    data["cookies"] = request.cookies
     data["url"] = request.url
-    data["files"] = request.files
-    data["json"] = request.json
-    data["values"] = request.values
     data["args"] = request.args
-    data["data"] = request.data
-    data["form"] = request.form
-    data["range"] = request.range
-    data["script_root"] = request.script_root
-    data["host"] = request.host
-    data["endpoint"] = request.endpoint
-    # data["accept_charsets"] = request.accept_charsets
-    # data["accept_encodings"] = request.accept_encodings
-    # data["accept_languages"] = request.accept_languages
-    # data["accept_mimetypes"] = request.accept_mimetypes
-
-    data["is_xhr"] = request.is_xhr
-
-    data["x-forwarded-for"] = request.environ.get("HTTP_X_FORWARDED_FOR")
-    data["X-Real-IP"] = request.environ.get("X-REAl-IP")
     data["remote_addr"] = request.remote_addr
 
+    return jsonify(data)
+
+
+@app.route("/post", methods=["POST"])
+def post():
+    headers = dict(request.headers)
+    data = {}
+    data["headers"] = headers
+    data["url"] = request.url
+    data["form"] = request.form
+    data["remote_addr"] = request.remote_addr
 
     return jsonify(data)
 
